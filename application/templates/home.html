@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Load Balancer</title>
-    <style>
-        body { text-align: center; font-family: Arial, sans-serif; padding: 50px; }
-        h1 { color: #3498db; }
-        p { font-size: 18px; }
-    </style>
+    <title>Load Balancing with Django</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Hello from Django instance</h1>
-    <p><strong>Instance:</strong> {{ hostname }}</p>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-96">
+        <h1 class="text-2xl font-bold text-gray-800">Welcome to Django Load Balancer</h1>
+        <p class="mt-4 text-gray-600">This page is served by:</p>
+        
+        <div class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg text-lg font-semibold">
+            Instance: <span class="font-bold">{{ hostname }}</span>
+        </div>
+
+        <p class="mt-4 text-sm text-gray-500">Your requests are automatically balanced across multiple instances.</p>
+    </div>
 </body>
 </html>
