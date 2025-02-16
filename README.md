@@ -10,6 +10,8 @@ Load Balancer: NGINX
 Containerization: Docker
 Database: PostgreSQL (future updates)
 Caching: Redis (future updates)
+
+# for first step of project (Load Balancing) it's completed now with this features
 Features:
 ✅ Multiple Django instances behind NGINX
 ✅ Dockerized environment for easy deployment
