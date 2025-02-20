@@ -80,10 +80,27 @@ WSGI_APPLICATION = 'django_load_balancing.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'DB_For_scalable_system',
+        'USER': 'hamza',
+        'PASSWORD': 'testpassword',
+        'HOST': 'pgbouncer',  # Use 'db' if you want to bypass PgBouncer 
+        'PORT': '6432',  # PgBouncer port (use 5433 if connecting directly to PostgreSQL) here i use 5433 inside the docker because my machine already use port 5432
+        'CONN_MAX_AGE': 0,  # Important when using PgBouncer
     }
 }
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://redis:6379/0',
+        'OPTIONS': {
+            
+        }
+    }
+}
+
 
 
 # Password validation
