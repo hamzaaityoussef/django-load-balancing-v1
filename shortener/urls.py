@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import shorten_url, redirect_url
+from .views import APIShortenURL, APIExpandURL
 
 urlpatterns = [
-    path('shorten/', shorten_url, name='shorten_url'),
-    path('<str:short_code>/', redirect_url, name='redirect_url'),
+    path('shorten/', APIShortenURL.as_view(), name='api_shorten'),
+    path('<str:short_code>/', APIExpandURL.as_view(), name='api_expand'),
 ]
