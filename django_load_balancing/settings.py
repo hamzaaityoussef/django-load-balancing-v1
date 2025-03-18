@@ -89,7 +89,15 @@ DATABASES = {
         'PASSWORD': 'testpassword',
         'HOST': 'pgbouncer',  # Use 'db' if you want to bypass PgBouncer 
         'PORT': '6432',  # PgBouncer port (use 5433 if connecting directly to PostgreSQL) here i use 5433 inside the docker because my machine already use port 5432
-        'CONN_MAX_AGE': 0,  # Important when using PgBouncer
+        'OPTIONS': {
+            'sslmode': 'disable',
+        },
+        # PgBouncer specific settings
+        'CONN_MAX_AGE': 0,    # Important: Don't keep connections permanently open
+        'POOL_SETTINGS': {
+            'POOL_SIZE': 20,
+            'POOL_TIMEOUT': 30,
+        },
     }
 }
 
